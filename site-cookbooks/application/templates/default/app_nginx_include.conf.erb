@@ -7,7 +7,7 @@ server_name_in_redirect off;
 
 root <%= @application_current_path %>/public;
 
-access_log <%= @application_shared_path %>/log/access.log main;
+access_log <%= @application_shared_path %>/log/access.log;
 error_log <%= @application_shared_path %>/log/error.log;
 
 include /etc/nginx/helpers/expires.conf;
