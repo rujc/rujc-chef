@@ -10,11 +10,6 @@ root <%= @application_current_path %>/public;
 access_log <%= @application_shared_path %>/log/access.log;
 error_log <%= @application_shared_path %>/log/error.log;
 
-include /etc/nginx/helpers/expires.conf;
-include /etc/nginx/helpers/maintenance.conf;
-include /etc/nginx/helpers/invalid_requests.conf;
-include /etc/nginx/helpers/headers.conf;
-
 try_files $uri/index.html $uri.html $uri @app;
 
 location @app {

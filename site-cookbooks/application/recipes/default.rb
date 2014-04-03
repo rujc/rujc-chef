@@ -118,3 +118,14 @@ template "/etc/init.d/unicorn_#{application_name}" do
   mode 0755
   variables template_variables
 end
+
+template database_yml_config do
+  source "database.yml.erb"
+
+  variables {
+    rails_env: application_environment
+  }
+
+  owner 'deployer'
+  group 'deployer'
+end
