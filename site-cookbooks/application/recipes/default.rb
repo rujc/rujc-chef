@@ -122,9 +122,11 @@ end
 template database_yml_config do
   source "database.yml.erb"
 
-  variables {
+  vars = {
     rails_env: application_environment
   }
+
+  variables vars
 
   owner 'deployer'
   group 'deployer'
