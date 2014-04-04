@@ -9,6 +9,6 @@ upstream <%= @application_name %> {
 
 server {
   listen 80;
-  server_name <%= @application_domain %> _;
+  server_name <%= @application_domains %> _;
   include /etc/nginx/sites-include/<%= @application_name %>.conf;
 }

@@ -15,7 +15,7 @@
   "application": {
     "name": "rjc",
     "environment": "staging",
-    "domain": "staging.rjc2014.ru",
+    "domains": "staging.rjc2014.ru staging.rjc2014.com",
     "root_prefix": "/var/www"
   },
 

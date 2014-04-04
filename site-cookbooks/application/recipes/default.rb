@@ -36,7 +36,7 @@ application_name = node.application.name
 directory node.application.root_prefix
 
 application_environment = node.application.environment
-application_domain = node.application.domain
+application_domains = node.application.domains
 
 application_root = "#{node.application.root_prefix}/#{application_name}"
 application_current_path = "#{application_root}/current"
@@ -69,7 +69,7 @@ end
 template_variables = {
   application_environment: application_environment,
   application_name: application_name,
-  application_domain: application_domain,
+  application_domains: application_domains,
   application_root: application_root,
   application_current_path: application_current_path,
   application_shared_path: application_shared_path,
@@ -122,11 +122,7 @@ end
 template database_yml_config do
   source "database.yml.erb"
 
-  vars = {
-    rails_env: application_environment
-  }
-
-  variables vars
+  variables { rails_env: application_environment }
 
   owner 'deployer'
   group 'deployer'
