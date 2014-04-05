@@ -79,7 +79,11 @@ template_variables = {
   unicorn_log: unicorn_log,
   unicorn_workers: 2,
   unicorn_timeout: 60,
-  unicorn_user: 'deployer'
+  unicorn_user: 'deployer',
+  database_host: 'localhost',
+  database_name: node.application.db.name,
+  database_username: node.application.db.username,
+  database_password: node.application.db.password
 }
 
 template "/etc/nginx/sites-include/#{application_name}.conf" do
@@ -132,20 +136,20 @@ postgresql_connection_info = {
   password: node.postgresql.password.postgres
 }
 
-postgresql_database(node.rails.application.db.name) do
+postgresql_database(node.application.db.name) do
   connection postgresql_connection_info
   action :create
 end
 
-postgresql_database_user(node.rails.application.db.username) do
+postgresql_database_user(node.application.db.username) do
   connection postgresql_connection_info
-  password node.rails.application.db.password
+  password node.application.db.password
   action :create
 end
 
-postgresql_database_user(node.rails.application.db.username) do
+postgresql_database_user(node.application.db.username) do
   connection postgresql_connection_info
-  database_name node.rails.application.db.name
+  database_name node.application.db.name
   privileges [:all]
   action :grant
 end
