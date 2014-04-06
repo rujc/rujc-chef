@@ -3,6 +3,8 @@ include_recipe 'apt'
 include_recipe 'hostname'
 include_recipe 'git'
 
+node.set['build_essential']['compiletime'] = true
+
 node.packages.each do |package_name|
   package package_name
 end
@@ -125,8 +127,8 @@ end
 
 # Database
 
-include_recipe 'postgresql::client'
 include_recipe 'postgresql::ruby'
+include_recipe 'postgresql::client'
 include_recipe 'postgresql::server'
 
 postgresql_connection_info = {
