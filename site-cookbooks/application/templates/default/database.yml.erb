@@ -1,5 +1,8 @@
 <%= @application_environment %>:
-  adapter: sqlite3
-  database: db/<%= @application_environment %>.sqlite3
+  adapter: postgresql
+  encoding: utf8
+  host: <%= @database_host %>
+  database: <%= @database_name %>
   pool: 5
-  timeout: 5000
+  username: <%= @database_username %>
+  password: <%= @database_password %>
