@@ -4,7 +4,10 @@ include_recipe 'postgresql::ruby'
 include_recipe 'postgresql::client'
 include_recipe 'postgresql::server'
 
+application_name = node.application.name
 application_environment = node.application.environment
+application_root = "#{node.application.root_prefix}/#{application_name}"
+application_shared_path = "#{application_root}/shared"
 database_yml_config = "#{application_shared_path}/config/database.yml"
 
 template_variables = {

@@ -7,6 +7,7 @@ application_domains = node.application.domains
 
 application_root = "#{node.application.root_prefix}/#{application_name}"
 application_current_path = "#{application_root}/current"
+application_shared_path = "#{application_root}/shared"
 
 unicorn_socket = "#{application_shared_path}/sockets/unicorn.sock"
 unicorn_pid = "#{application_shared_path}/pids/unicorn.pid"
@@ -19,6 +20,7 @@ template_variables = {
   application_domains: application_domains,
   application_root: application_root,
   application_current_path: application_current_path,
+  application_shared_path: application_shared_path,
   unicorn_config: unicorn_config,
   unicorn_socket: unicorn_socket,
   unicorn_pid: unicorn_pid,
