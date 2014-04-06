@@ -1,0 +1,7 @@
+# Users
+user_account 'deployer' do
+  ssh_keys ['ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3RjPMN81CWPl+EI/tK3tsyWItu2wNuUcqji/c0r9W8YZ/czZUPkeXraVer3XzYFIG1DVOLmUKZHc/+o7kCXNwwNGUi8dXckTrVsvVdY1169Bw33EyAD2RaRrDJHKllRw6VkGJaYT8LZWONTihMiXt+fKdoULL+g00X9ydT7BhdTflZRcdskQSfgfXdVuDMp4FKkMyRHAEAO9V5EbWprqlKNa7rvR/1AruYh2wsTS6yZ9vVIS82aQhjReXQMhqfIjgnZaOshbkDpAiat6ii/Y8xU2EYJb/ffInjV8+nqY07V1Z02Jae1NzRjJ1Jm27r2sdmUisAZMy6mbc2A/EoHQB me@maxprokopiev.com']
+
+  action :create
+end
+include_recipe "sudo::default"
