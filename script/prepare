@@ -29,5 +29,8 @@ bundle exec librarian-chef install
   cp -i nodes/default.json "nodes/$NODE.json"
 )
 
+echo "Copying public ssh keys to target node ($NODE)"
+ssh-copy-id -i ~/.ssh/id_rsa.pub $@
+
 echo "Installing chef on target node ($NODE)"
 bundle exec knife solo prepare $@
